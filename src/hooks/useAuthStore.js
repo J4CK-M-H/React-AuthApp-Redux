@@ -14,7 +14,7 @@ export const useAuthStore = () => {
 
     try {
       await authApi.post('auth/register', body);
-
+      dispatch(onLogout());
     } catch (error) {
       console.log(error.response.data.errors[0].msg);
       dispatch(onLogout('Campos invalidos'));
